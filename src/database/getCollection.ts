@@ -51,3 +51,15 @@ export const getFindingsCollection = ({
   unique: 'issueUrl',
 });
 
+export const getIgnoredFindingsCollection = ({
+  db,
+  watson,
+}: {
+  readonly db: Lokijs;
+  readonly watson: string;
+}) => getCollection({
+  db,
+  collectionName: `ignored-findings-${watson}`,
+  unique: 'issueUrl',
+});
+
