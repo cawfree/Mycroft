@@ -83,6 +83,7 @@ void (async () => {
         db,
         executablePath,
         port,
+        waitUntil,
         watson,
       }),
     ]);
