@@ -17,7 +17,10 @@ describe('jest', () => {
     /// @dev Note, this will get invalidated as the user participates
     ///      in more contests. You'll probably need to update snapshots
     //       frequently with a call to `yarn test -u`.
-    expect(await getContests({watson: 'cawfree'})).toMatchSnapshot();
+    expect(await getContests({
+      watson: 'cawfree',
+      waitUntil: 240,
+    })).toMatchSnapshot();
 
     await close();
 

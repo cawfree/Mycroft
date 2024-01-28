@@ -13,6 +13,7 @@ export type Contest = {
 };
 
 export type GetContestsParams = {
+  readonly waitUntil: number;
   readonly watson: string;
 };
 
@@ -24,7 +25,6 @@ export type GetContests = (params: GetContestsParams) => Promise<GetContestsResu
 
 export type Finding = {
   readonly issueUrl: string;
-  readonly watsons: readonly string[];
 };
 
 export type GetFindingsParams = {
