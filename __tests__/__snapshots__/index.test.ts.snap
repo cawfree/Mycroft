@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`jest get contest urls 1`] = `
+{
+  "contests": [
+    {
+      "contestPageUrl": "https://audits.sherlock.xyz/contests/111",
+      "issueRepoUrl": "https://github.com/sherlock-audit/2023-09-nounsbuilder-judging/issues",
+    },
+    {
+      "contestPageUrl": "https://audits.sherlock.xyz/contests/135",
+      "issueRepoUrl": "https://github.com/sherlock-audit/2023-12-dodo-gsp-judging/issues",
+    },
+    {
+      "contestPageUrl": "https://audits.sherlock.xyz/contests/123",
+      "issueRepoUrl": "https://github.com/sherlock-audit/2023-10-perennial-judging/issues",
+    },
+    {
+      "contestPageUrl": "https://audits.sherlock.xyz/contests/122",
+      "issueRepoUrl": "https://github.com/sherlock-audit/2023-10-looksrare-judging/issues",
+    },
+    {
+      "contestPageUrl": "https://audits.sherlock.xyz/contests/120",
+      "issueRepoUrl": "https://github.com/sherlock-audit/2023-10-aloe-judging/issues",
+    },
+    {
+      "contestPageUrl": "https://audits.sherlock.xyz/contests/114",
+      "issueRepoUrl": "https://github.com/sherlock-audit/2023-09-ajna-judging/issues",
+    },
+    {
+      "contestPageUrl": "https://audits.sherlock.xyz/contests/109",
+      "issueRepoUrl": "https://github.com/sherlock-audit/2023-09-Gitcoin-judging/issues",
+    },
+    {
+      "contestPageUrl": "https://audits.sherlock.xyz/contests/101",
+      "issueRepoUrl": "https://github.com/sherlock-audit/2023-06-tokemak-judging/issues",
+    },
+    {
+      "contestPageUrl": "https://audits.sherlock.xyz/contests/97",
+      "issueRepoUrl": "https://github.com/sherlock-audit/2023-06-gfx-judging/issues",
+    },
+    {
+      "contestPageUrl": "https://audits.sherlock.xyz/contests/86",
+      "issueRepoUrl": "https://github.com/sherlock-audit/2023-06-arrakis-judging/issues",
+    },
+  ],
+}
+`;
