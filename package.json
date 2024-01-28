@@ -8,6 +8,7 @@
   "license": "CC0-1.0",
   "private": false,
   "scripts": {
+    "start": "npx ts-node scripts/start",
     "postinstall": "node node_modules/puppeteer-core/install.js",
     "test": "jest"
   },
@@ -16,18 +17,18 @@
     "@babel/preset-env": "7.23.9",
     "@babel/preset-typescript": "7.23.3",
     "@jest/globals": "29.7.0",
+    "@types/express": "4.17.21",
     "@types/jest": "29.5.11",
     "@types/node": "20.11.8",
     "babel-jest": "29.7.0",
     "bottleneck": "2.19.5",
+    "escape-string-regexp": "4.0.0",
+    "express": "4.18.2",
     "jest": "29.7.0",
     "puppeteer-core": "13.7.0",
     "puppeteer-extra": "3.3.6",
     "puppeteer-extra-plugin-stealth": "2.11.2",
     "ts-node": "10.9.2",
     "typescript": "5.3.3"
-  },
-  "dependencies": {
-    "escape-string-regexp": "4.0.0"
   }
 }

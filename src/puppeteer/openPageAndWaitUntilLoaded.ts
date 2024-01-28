@@ -15,7 +15,7 @@ export const openPageAndWaitUntilLoaded = async ({
   await page.goto(url);
 
   if (typeof waitUntil === 'number') {
-    await page.waitFor(waitUntil);
+    await page.waitForTimeout(waitUntil);
   } else {
     await page.waitForNavigation({waitUntil});
   }
