@@ -36,11 +36,7 @@ To prepare a deck of contest issues for a given `$AUDITOR_NAME`, you can use:
 yarn start $AUDITOR_NAME
 ```
 
-That should be everything! If you have any trouble (for example, your database gets corrupted, you can `rm .db.lokijs`, or if you are on a slow network, you might find it helpful to slow down the request process:
-
-```shell
-LOAD_DELAY=1000 yarn start cawfree
-```
+That should be everything! 
 
 ## ✌️ License
 [__CC0-1.0__](LICENSE.md)
