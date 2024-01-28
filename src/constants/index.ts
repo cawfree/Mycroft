@@ -9,7 +9,6 @@ export const MAX_CONCURRENT_SHERLOCK = 3;
 // to GitHub. That doesn't mean we love you any less.
 export const MAX_CONCURRENT_GITHUB = MAX_CONCURRENT_SHERLOCK * 2;
 
-
 export const BOTTLENECK_SHERLOCK = new Bottleneck({
   maxConcurrent: MAX_CONCURRENT_SHERLOCK,
 });

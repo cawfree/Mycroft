@@ -1,34 +1,12 @@
-import express from 'express';
 import Lokijs from 'lokijs';
 
-import {createMycroft} from '../src';
-
-const loadOrCreateCollection = async ({
-  collectionName,
-  db,
-  unique,
-}: {
-  readonly collectionName: string;
-  readonly db: Lokijs;
-  readonly unique: string;
-}) => new Promise<Lokijs.Collection>(
-  resolve =>  {
-    const collection = db.getCollection(collectionName);
-
-    if (collection) return resolve(collection);
-    
-    return resolve(
-      db.addCollection(
-        collectionName,
-        {
-          unique: [unique],
-          indices: [unique],
-          autoupdate: true,
-        },
-      )
-    );
-  },
-);
+import {
+  createMycroft,
+  createServer,
+  createViewer,
+  getContestsCollection,
+  getFindingsCollection,
+} from '../src';
 
 void (async () => {
   try {
@@ -36,6 +14,7 @@ void (async () => {
     const port = 3000;
     const watson = 'cawfree';
     const waitUntil = 240;
+    const executablePath = '';
 
     console.log('Starting...');
  
@@ -53,19 +32,12 @@ void (async () => {
       },
     );
 
-    const db_contests = await loadOrCreateCollection({
-      db,
-      collectionName: `contests-${watson}`,
-      unique: 'contestPageUrl',
-    });
+    const db_contests = await getContestsCollection({db, watson});
+    const db_findings = await getFindingsCollection({db, watson});
 
-    const db_findings = await loadOrCreateCollection({
-      db,
-      collectionName: `findings-${watson}`,
-      unique: 'issueUrl',
+    const {getContests, getFindings, close} = await createMycroft({
+      executablePath,
     });
-
-    const {getContests, getFindings, close} = await createMycroft();
 
     const {contests} = await getContests({watson, waitUntil});
 
@@ -105,20 +77,15 @@ void (async () => {
 
     console.log(`Server launched on http://localhost:${port}!`);
 
-    await new Promise<void>(
-      resolve => express()
-        .get('/', (req, res) => res.status(200).send('hello'))
-        .get(
-          '/random',
-          (_, res) => {
-            const findings = db_findings.chain().data();
-            return res
-              .status(200)
-              .json(findings[Math.floor(findings.length * Math.random())])
-          },
-        )
-        .listen(port, resolve)
-    );
+    await Promise.all([
+      createServer({db, watson, port}),
+      createViewer({
+        db,
+        executablePath,
+        port,
+        watson,
+      }),
+    ]);
 
   } catch (e) {
     console.error(e);

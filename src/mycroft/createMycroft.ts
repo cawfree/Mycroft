@@ -116,7 +116,6 @@ export async function createMycroft({
   const {browserContext, close} = await createStealthBrowserContext({
     executablePath,
     headless,
-    args: [],
   });
 
   return {

@@ -8,12 +8,12 @@ export async function createStealthBrowserContext({
   executablePath,
   headless,
   debug: dumpio = false,
-  args,
+  args = [],
 }: {
   readonly executablePath: string;
   readonly headless: boolean;
   readonly debug?: boolean;
-  readonly args: readonly string[];
+  readonly args?: readonly string[];
 }): Promise<StealthBrowserContext> {
   puppeteer.use(stealth());
 
