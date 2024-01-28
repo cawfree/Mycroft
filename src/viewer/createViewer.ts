@@ -188,13 +188,11 @@ export const presentRandomFinding = async ({
 export const createViewer = async ({
   db,
   executablePath,
-  port,
   waitUntil,
   watson,
 }: {
   readonly db: Lokijs,
   readonly executablePath: string;
-  readonly port: number;
   readonly waitUntil: number;
   readonly watson: string;
 }) => {
@@ -203,11 +201,6 @@ export const createViewer = async ({
     headless: false,
   });
 
-  return presentRandomFinding({
-    browserContext,
-    db,
-    waitUntil,
-    watson,
-  });
+  return presentRandomFinding({browserContext, db, waitUntil, watson});
 };
 

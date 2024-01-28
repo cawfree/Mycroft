@@ -1,23 +1,41 @@
+import 'dotenv/config';
+
 import Lokijs from 'lokijs';
 
 import {
   createMycroft,
-  createServer,
   createViewer,
   getContestsCollection,
   getFindingsCollection,
 } from '../src';
 
+const {
+  CHROMIUM_PATH: maybeChromiumPath,
+  LOAD_DELAY: maybeLoadDelay,
+} = process.env as Partial<{
+  readonly CHROMIUM_PATH: string;
+  readonly LOAD_DELAY: string;
+}>;
+
+const executablePath = typeof maybeChromiumPath === 'string' && maybeChromiumPath.length > 0
+  ? maybeChromiumPath
+  : '';
+
+const waitUntil = typeof maybeLoadDelay === 'string' && String(parseInt(maybeLoadDelay)) === maybeLoadDelay
+  ? parseInt(maybeLoadDelay)
+  : 240;
+
+
 void (async () => {
   try {
 
-    const port = 3000;
-    const watson = 'cawfree';
-    const waitUntil = 240;
-    const executablePath = '';
+    const [maybeWatson] = process.argv.slice(2);
+    
+    if (typeof maybeWatson !== 'string' || !maybeWatson.length) {
+      console.log(`You must specify a watson i.e. yarn start xiaoming90`);
+      return;
+    }
 
-    console.log('Starting...');
- 
     // To prevent excessive requests and long startup times,
     // we'll intend to only fetch new contests we don't have
     // information about already.
@@ -32,17 +50,19 @@ void (async () => {
       },
     );
 
-    const db_contests = await getContestsCollection({db, watson});
-    const db_findings = await getFindingsCollection({db, watson});
+    const db_contests = await getContestsCollection({db, watson: maybeWatson});
+    const db_findings = await getFindingsCollection({db, watson: maybeWatson});
+
+    console.log('Preparing...');
 
     const {getContests, getFindings, close} = await createMycroft({
       executablePath,
     });
 
-    const {contests} = await getContests({watson, waitUntil});
+    const {contests} = await getContests({watson: maybeWatson, waitUntil});
 
     if (!contests.length)
-      throw new Error(`Unable to find any contests for "${watson}".`);
+      throw new Error(`Unable to find any contests for "${maybeWatson}".`);
 
 
     /// @dev Here we're only inteststed in the contests
@@ -75,18 +95,7 @@ void (async () => {
     await close();
     await db.saveDatabase();
 
-    console.log(`Server launched on http://localhost:${port}!`);
-
-    await Promise.all([
-      createServer({db, watson, port}),
-      createViewer({
-        db,
-        executablePath,
-        port,
-        waitUntil,
-        watson,
-      }),
-    ]);
+    await createViewer({db, executablePath, waitUntil, watson: maybeWatson});
 
   } catch (e) {
     console.error(e);
