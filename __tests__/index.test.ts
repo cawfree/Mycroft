@@ -1,6 +1,6 @@
 import 'jest';
 
-import {createMycroft} from '../src';
+import {Contest, createMycroft} from '../src';
 
 jest.setTimeout(10 * 60 * 1_000);
 
@@ -10,7 +10,7 @@ const createTestMycroft = () => createMycroft({
 
 describe('jest', () => {
 
-  it('get contest urls', async () => {
+  it('getContests', async () => {
     
     const {close, getContests} = await createTestMycroft();
 
@@ -22,6 +22,22 @@ describe('jest', () => {
     await close();
 
   });
+
+  it('getFindings', async () => {
+
+    const {close, getFindings} = await createTestMycroft();
+
+    const contest: Contest = /* first */ {
+      contestPageUrl: 'https://audits.sherlock.xyz/contests/122',
+      issueRepoUrl: 'https://github.com/sherlock-audit/2023-10-looksrare-judging/issues',
+    };
+
+    expect(await getFindings({contest, waitUntil: 240})).toMatchSnapshot();
+
+    await close();
+
+  });
+
 
 });
 

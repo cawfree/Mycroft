@@ -26,5 +26,8 @@
     "puppeteer-extra-plugin-stealth": "2.11.2",
     "ts-node": "10.9.2",
     "typescript": "5.3.3"
+  },
+  "dependencies": {
+    "escape-string-regexp": "4.0.0"
   }
 }

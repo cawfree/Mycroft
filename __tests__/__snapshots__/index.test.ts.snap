@@ -1,8 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`jest get contest urls 1`] = `
+exports[`jest getContests 1`] = `
 {
   "contests": [
+    {
+      "contestPageUrl": "https://audits.sherlock.xyz/contests/126",
+      "issueRepoUrl": "https://github.com/sherlock-audit/2023-11-convergence-judging/issues",
+    },
+    {
+      "contestPageUrl": "https://audits.sherlock.xyz/contests/131",
+      "issueRepoUrl": "https://github.com/sherlock-audit/2023-12-footium-judging/issues",
+    },
+    {
+      "contestPageUrl": "https://audits.sherlock.xyz/contests/151",
+      "issueRepoUrl": "https://github.com/sherlock-audit/2023-12-truflation-judging/issues",
+    },
     {
       "contestPageUrl": "https://audits.sherlock.xyz/contests/111",
       "issueRepoUrl": "https://github.com/sherlock-audit/2023-09-nounsbuilder-judging/issues",
@@ -42,6 +54,85 @@ exports[`jest get contest urls 1`] = `
     {
       "contestPageUrl": "https://audits.sherlock.xyz/contests/86",
       "issueRepoUrl": "https://github.com/sherlock-audit/2023-06-arrakis-judging/issues",
+    },
+  ],
+}
+`;
+
+exports[`jest getFindings 1`] = `
+{
+  "findings": [
+    {
+      "issueUrl": "https://github.com/sherlock-audit/2023-10-looksrare-judging/issues/136",
+      "watsons": [
+        "ge6a",
+        "feelereth",
+        "gkrastenov",
+        "mstpr",
+        "coffiasd",
+        "836541",
+        "p",
+        "chainNue",
+        "klaus",
+        "0xpep7",
+        "enfrasico",
+        "SilentDefendersOfDeFi",
+      ],
+    },
+    {
+      "issueUrl": "https://github.com/sherlock-audit/2023-10-looksrare-judging/issues/98",
+      "watsons": [
+        "SilentDefendersOfDeFi",
+        "cergyk",
+        "0xReiAyanami",
+        "Krace",
+        "mstpr",
+      ],
+    },
+    {
+      "issueUrl": "https://github.com/sherlock-audit/2023-10-looksrare-judging/issues/84",
+      "watsons": [
+        "Tricko",
+        "cergyk",
+        "0xGoodess",
+        "detectiveking",
+        "Krace",
+      ],
+    },
+    {
+      "issueUrl": "https://github.com/sherlock-audit/2023-10-looksrare-judging/issues/44",
+      "watsons": [
+        "coffiasd",
+        "mstpr",
+        "pontifex",
+        "lil.eth",
+      ],
+    },
+    {
+      "issueUrl": "https://github.com/sherlock-audit/2023-10-looksrare-judging/issues/43",
+      "watsons": [
+        "Krace",
+        "cergyk",
+        "mstpr",
+        "SilentDefendersOfDeFi",
+        "detectiveking",
+      ],
+    },
+    {
+      "issueUrl": "https://github.com/sherlock-audit/2023-10-looksrare-judging/issues/31",
+      "watsons": [
+        "cergyk",
+        "detectiveking",
+      ],
+    },
+    {
+      "issueUrl": "https://github.com/sherlock-audit/2023-10-looksrare-judging/issues/21",
+      "watsons": [
+        "klaus",
+        "cergyk",
+        "mstpr",
+        "ast3ros",
+      ],
     },
   ],
 }

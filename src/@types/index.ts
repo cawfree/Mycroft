@@ -17,13 +17,29 @@ export type GetContestsParams = {
 };
 
 export type GetContestsResult = {
-  /// @dev The contests a Watson has participated in.
   readonly contests: readonly Contest[];
 };
 
 export type GetContests = (params: GetContestsParams) => Promise<GetContestsResult>;
 
+export type Finding = {
+  readonly issueUrl: string;
+  readonly watsons: readonly string[];
+};
+
+export type GetFindingsParams = {
+  readonly contest: Contest;
+  readonly waitUntil: number;
+};
+
+export type GetFindingsResult = {
+  readonly findings: readonly Finding[];
+};
+
+export type GetFindings = (params: GetFindingsParams) => Promise<GetFindingsResult>;
+
 export type Mycroft = Omit<StealthBrowserContext, 'browserContext'> & {
   readonly getContests: GetContests;
+  readonly getFindings: GetFindings;
 };
 
