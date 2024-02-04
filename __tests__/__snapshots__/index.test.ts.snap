@@ -12,6 +12,10 @@ exports[`jest getContests 1`] = `
       "issueRepoUrl": "https://github.com/sherlock-audit/2023-12-footium-judging/issues",
     },
     {
+      "contestPageUrl": "https://audits.sherlock.xyz/contests/144",
+      "issueRepoUrl": "https://github.com/sherlock-audit/2023-12-symm-io-judging/issues",
+    },
+    {
       "contestPageUrl": "https://audits.sherlock.xyz/contests/151",
       "issueRepoUrl": "https://github.com/sherlock-audit/2023-12-truflation-judging/issues",
     },
@@ -22,6 +26,10 @@ exports[`jest getContests 1`] = `
     {
       "contestPageUrl": "https://audits.sherlock.xyz/contests/135",
       "issueRepoUrl": "https://github.com/sherlock-audit/2023-12-dodo-gsp-judging/issues",
+    },
+    {
+      "contestPageUrl": "https://audits.sherlock.xyz/contests/128",
+      "issueRepoUrl": "https://github.com/sherlock-audit/2023-11-olympus-judging/issues",
     },
     {
       "contestPageUrl": "https://audits.sherlock.xyz/contests/123",
